@@ -21,27 +21,42 @@
 
     <!-- test pre tag to log current weather -->
     
-
+    <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Weather Dashboard</h1>
-        </div>
+        
+            <h1 class="display-6">Weather Dashboard</h1>
+        
     </div>
     <main>
-        <div id="searchCities"></div>
-        <label for="search">Search for a City</label><br>
-        <input type="search" id="search"></input>
+        <div class="row">
+            <div class="col-4">
+            <div id="searchCities"></div>
+            <label for="search">Search for a City:</label><br>
+            <input type="search" id="search"></input>
+            <button id="searchBtn">Search</button> 
+            <div id="searchHistory"></div>
         </div>
-        <button id="searchBtn">Search</button> 
-        <div id="searchHistory">
-            <div>
-                <div class="city"></div>
-                <div class="temp"></div>
-                <div class="wind"></div>
-                <div class="humidity"></div>
+
+            <div class="col-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="city"></div>
+                        <div class="temp"></div>
+                        <div class="wind"></div>
+                        <div class="humidity"></div>
+                        <div class="uvIndex"></div>
+                    </div>
+                </div>   
+                <div class="row">
+                    <div>
+                        <h1>5-Day Forecast</h1>
+                    </div>
+                </div> 
             </div>
         </div>
+        </div>
     </main>
+    </div>
 </body>
 
 </html>
