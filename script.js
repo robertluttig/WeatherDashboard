@@ -15,7 +15,7 @@ $(function() {
             console.log(response);
             
             //Transfer to HTML
-            $(".city").html(response.name);
+            $(".city").text(response.name + response.dt);
             $(".wind").text("Wind Speed: " + response.wind.speed);
             $(".humidity").text("Humidity: " + response.main.humidity);
             
@@ -69,8 +69,11 @@ $(function () {
           var tempEl = $("<div>").text("Temp: " + forecastDays[i].main.temp + " °F");
           var humidityEl = $("<div>").text("Humidity: " + forecastDays[i].main.humidity + "%");
           
-          forecastContainer.append(dateEl, iconEl, tempEl, humidityEl);
-          $("#forecast").append(forecastContainer);
+          
+          $("#dateEl").append(dateEl);
+          $("#iconEl").append(iconEl);
+          $("#tempEl").append(tempEl);
+          $("#humidityEl").append(humidityEl);
         }
       });
     }
