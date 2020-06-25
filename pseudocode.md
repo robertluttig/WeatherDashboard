@@ -6,12 +6,13 @@ the user is able to enter a city name and click on the search button
 
 
 the app then displays the searched cities current weather and forecast
-    what we see:
-    city name and today's date clud condition img
+    what we see: 
+    Data
+    (city name and today's date clud condition img
     Temprature: in imperial units
     Humidity:
     Wind Speed:
-    UV Index:(color coded to reflect 3 different level of UV strength)
+    UV Index:(color coded to reflect 3 different level of UV strength))
 
 
 the searched for city also appears below the search bar creating a history of all cities that were searched for 
@@ -23,4 +24,12 @@ the searched for city also appears below the search bar creating a history of al
     Cloud condition img
     Temp:
     Humidity:
+
+    Data Phase
+        Get current weather for a city
+        data for UV index
+        data for 5 day forecast
+        log url for current weather in the console
+        log url for 5day forecast to console
+
 
