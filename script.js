@@ -26,7 +26,7 @@ $(function() {
             $(".tempk").text("Temperature (K) " + response.main.temp);
             $(".temp").text("Temperature (F) " + tempF.toFixed(2));
             
-            fivedayForecast();
+            
         });
     });
 });
