@@ -32,8 +32,13 @@ $(function() {
 });
 
 $(function () {
-    // listen for clicks on search button
-    $("#searchBtn").on("click", handleSearch);
+   
+    $("#searchBtn").on("click", function(event){
+      event.preventDefault();
+      console.log(event);
+      handleSearch(event);
+      
+    });
   
     function handleSearch(event) {
       event.preventDefault();
@@ -41,7 +46,7 @@ $(function () {
   
       var APIKey = "e811c78dba75cfd7ce373e0d9345ec47";
   
-      // Here we are building the URL we need to query the database
+      
       var queryURL =
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
         search +
@@ -60,16 +65,22 @@ $(function () {
         forecastDays.push(response.list[16]);
         forecastDays.push(response.list[24]);
         forecastDays.push(response.list[32]);
+        displaySearchHistory(search);
   
   
         for (var i = 0; i < forecastDays.length; i += 1) {
+          var iconurl = "http://openweathermap.org/img/w/" + forecastDays[i].weather[0].icon + ".png";
+          console.log(iconurl);
           var forecastContainer = $("<div>").addClass("forecast-day");
           var dateEl = $("<div>").text(forecastDays[i].dt);
-          var iconEl = $("<div>").text("icon id: " + forecastDays[i].weather[0].icon);
+          var iconEl = $("<img>").attr('src', iconurl);
           var tempEl = $("<div>").text("Temp: " + forecastDays[i].main.temp + " °F");
           var humidityEl = $("<div>").text("Humidity: " + forecastDays[i].main.humidity + "%");
           
           
+      
+        
+
           $("#dateEl").append(dateEl);
           $("#iconEl").append(iconEl);
           $("#tempEl").append(tempEl);
@@ -78,6 +89,11 @@ $(function () {
       });
     }
   });
+  
+  var cities = [];
 
-
-
+  function displaySearchHistory(Search){
+   
+    console.log("displaySearchHistory; ",search);
+  };
+  
