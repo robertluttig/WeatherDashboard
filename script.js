@@ -139,5 +139,47 @@ $(function () {
       },
     });
   }
+  function getUVIndex(lat, lon) {
+    // build a url for the request
+    var url =
+      openWeatherMapApiUrl +
+      "uvi?appid=" +
+      openWeatherMapAppId +
+      "&lat=" +
+      lat +
+      "&lon=" +
+      lon;
+
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json",
+      success: function (data) {
+        var uv = $("<p>").text("UV Index: ");
+        var btn = $("<span>").addClass("btn btn-sm").text(data.value);
+
+        // change color depending on uv value
+        if (data.value < 3) {
+          btn.addClass("btn-success");
+        } else if (data.value < 7) {
+          btn.addClass("btn-warning");
+        } else {
+          btn.addClass("btn-danger");
+        }
+
+        $("#today .card-body").append(uv.append(btn));
+      },
+    });
+  }
+  // get current history, if any
+  var history = JSON.parse(window.localStorage.getItem("history")) || [];
+
+  if (history.length > 0) {
+    searchWeather(history[history.length - 1]);
+  }
+
+  for (var i = 0; i < history.length; i++) {
+    makeRow(history[i]);
+  }
 });
 
